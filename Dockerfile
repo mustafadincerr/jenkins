@@ -1,14 +1,21 @@
-# Node.js temel imajını kullan
+# Node.js imajından başla
 FROM node:14
 
-# Çalışma dizinini oluştur
+# Çalışma dizinini ayarla
 WORKDIR /app
 
-# Uygulama kodunu kopyala
-COPY . .
+# package.json ve package-lock.json'ı çalışma dizinine kopyala
+COPY package*.json ./
 
-# Uygulama bağımlılıklarını yükle
+# Bağımlılıkları yükle
 RUN npm install
 
-# Uygulama çalıştırma komutu
+# Uygulama dosyalarını kopyala
+COPY . .
+
+# Uygulamanın çalışacağı port
+EXPOSE 3000
+
+# Uygulamayı başlat
 CMD ["node", "app.js"]
+
