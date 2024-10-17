@@ -1,0 +1,9 @@
+replicas: 3
+
+image:
+  repository: europe-west3-docker.pkg.dev/upheld-terminus-435310-a1/k8s/md
+  tag: "latest"
+
+service:
+  type: LoadBalancer
+  port: 3000
